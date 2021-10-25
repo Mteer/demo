@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+  <style>
+    *{
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+    .nav{
+      border: 1px solid #000;
+      height: 40px;
+      background-color: #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    input{
+      width: 60%;
+      height: 40px;
+      border: 1px solid #ddd;
+    }
+    .box{
+      width: 100%;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      z-index: 999;
+      display: flex;
+      flex-flow: row nowrap;
+    }
+    .send{
+      width: 100%;
+      height: 50px;
+      background-color: #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">测试标题</div>
+  <input type="text" id="input">
+  <div class="page"></div>
+  <div class="box">
+    <div class="send">发送</div>
+  </div>
+  <script>
+    var userAgent = window.navigator.userAgent.toLowerCase().indexOf("iphone")>0;
+    document.title = userAgent?"ios":"android";
+    var el = document.querySelector("#input");
+    var page = document.querySelector(".page");
+    for(var i=0;i<20;i++){
+      page.innerHTML += "<p style='height:50px'>展示的内容....</p>"
+    }
+    el.onfocus = function(event){
+      console.log(event)
+    }
+  </script>
+</body>
+</html>
